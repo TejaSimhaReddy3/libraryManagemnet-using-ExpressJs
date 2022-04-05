@@ -12,8 +12,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json())
 app.set('view engine', 'ejs');
 
-// ytftyf
-
 app.use('/api',apiRoutes);
 
 app.use("/",swaggerUI.serve,swaggerUI.setup(swaggerJsDocs))
