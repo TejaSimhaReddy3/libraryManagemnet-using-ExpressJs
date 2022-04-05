@@ -1,0 +1,573 @@
+openapi: 3.0.0
+info:
+  title: libraryManagement
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://localhost:3000/api
+  variables: {}
+paths:
+  /bookDetails/books:
+    get:
+      tags:
+      - Misc
+      summary: GetBooks
+      operationId: GetBooks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookDetails/addBooks:
+    post:
+      tags:
+      - Misc
+      summary: addBooks
+      operationId: addBooks
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addBooksRequest'
+            example:
+              ISBN: 258-2-15-753357-1
+              title: YaQi
+              edition: '2022'
+              category: Science And Technology
+              price: 199
+              publisher_id: 104
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookDetails/updateBook/{id}:
+    put:
+      tags:
+      - Misc
+      summary: updateBooks
+      operationId: updateBooks
+      parameters:
+      - name: id
+        in: path
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateBooksRequest'
+            example:
+              category: Love Drama
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookDetails/delBook/{id}:
+    delete:
+      tags:
+      - Misc
+      summary: deleteBooks
+      operationId: deleteBooks
+      parameters:
+      - name: id
+        in: path
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookIssued/get:
+    get:
+      tags:
+      - Misc
+      summary: issuedBooks
+      operationId: issuedBooks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookIssued/post/{id}:
+    post:
+      tags:
+      - Misc
+      summary: issuedBooks
+      operationId: PostissuedBooks
+      parameters:
+      - name: id
+        in: path
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/issuedBooksRequest'
+            example:
+              r_id: 2
+              issued_staff_id: 2
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookReturned/get:
+    get:
+      tags:
+      - Misc
+      summary: returnedBooks
+      operationId: returnedBooks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bookReturned/post/{id}:
+    post:
+      tags:
+      - Misc
+      summary: returnedBooks
+      operationId: PostreturnedBooks
+      parameters:
+      - name: id
+        in: path
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/returnedBooksRequest'
+            example:
+              r_id: 1
+              returned_to_staff: 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /staffDetails/get:
+    get:
+      tags:
+      - Misc
+      summary: staffDetails
+      operationId: staffDetails
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /staffDetails/addStaff:
+    post:
+      tags:
+      - Misc
+      summary: staffDetails
+      operationId: PoststaffDetails
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/staffDetailsRequest'
+            example:
+              staff_id: 2
+              name: Vijay
+              assigned_student_id: 2
+              mobile_number: 8008
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /staffDetails/updateStaff/{id}:
+    put:
+      tags:
+      - Misc
+      summary: staffDetails1
+      operationId: staffDetails1
+      parameters:
+      - name: id
+        in: path
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/staffDetailsRequest1'
+            example:
+              name: Senthil
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /staffDetails/removeStaff/{id}:
+    delete:
+      tags:
+      - Misc
+      summary: staffDetails1
+      operationId: DeletestaffDetails1
+      parameters:
+      - name: id
+        in: path
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /publisherDetails/get:
+    get:
+      tags:
+      - Misc
+      summary: publisherDetails
+      operationId: publisherDetails
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /publisherDetails/addPublisher:
+    post:
+      tags:
+      - Misc
+      summary: publisherDetails
+      operationId: PostpublisherDetails
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/publisherDetailsRequest'
+            example:
+              publisher_id: 108
+              publisher_name: Buks India
+              year_of_publication: 2001-06-08
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /publisherDetails/updatePublisher/{id}:
+    put:
+      tags:
+      - Misc
+      summary: publisherDetails1
+      operationId: publisherDetails1
+      parameters: 
+      - name: id
+        in: path
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/publisherDetailsRequest1'
+            example:
+              publisher_name: Books India
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /readerDetails/get:
+    get:
+      tags:
+      - Misc
+      summary: reader
+      operationId: reader
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /readerDetails/addReader:
+    post:
+      tags:
+      - Misc
+      summary: reader
+      operationId: Postreader
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/readerrequest'
+            example:
+              r_id: 4
+              mail_id: kathi@rgukt.in
+              first_name: Yaswanth
+              last_name: Kathi
+              mobile_num: 258
+              address: Gudur
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /libauth/staff:
+    get:
+      tags:
+      - Misc
+      summary: libAuth
+      operationId: libAuth
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /libauth/addStaff:
+    post:
+      tags:
+      - Misc
+      summary: libAuth
+      operationId: PostlibAuth
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/libAuthRequest'
+            example:
+              mobile_number: 1204
+              email: chillbro@gmail.com
+              password: chill@123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /libauth/login:
+    get:
+      tags:
+      - Misc
+      summary: libAuth1
+      operationId: libAuth1
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+# components:
+#   schemas:
+#     addBooksRequest:
+#       title: addBooksRequest
+#       required:
+#       - ISBN
+#       - title
+#       - edition
+#       - category
+#       - price
+#       - publisher_id
+#       type: object
+#       properties:
+#         ISBN:
+#           type: string
+#         title:
+#           type: string
+#         edition:
+#           type: string
+#         category:
+#           type: string
+#         price:
+#           type: integer
+#           format: int32
+#         publisher_id:
+#           type: integer
+#           format: int32
+#       example:
+#         ISBN: 258-2-15-753357-1
+#         title: YaQi
+#         edition: '2022'
+#         category: Science And Technology
+#         price: 199
+#         publisher_id: 104
+#     updateBooksRequest:
+#       title: updateBooksRequest
+#       required:
+#       - category
+#       type: object
+#       properties:
+#         category:
+#           type: string
+#       example:
+#         category: Love Drama
+#     issuedBooksRequest:
+#       title: issuedBooksRequest
+#       required:
+#       - r_id
+#       - issued_staff_id
+#       type: object
+#       properties:
+#         r_id:
+#           type: integer
+#           format: int32
+#         issued_staff_id:
+#           type: integer
+#           format: int32
+#       example:
+#         r_id: 2
+#         issued_staff_id: 2
+#     returnedBooksRequest:
+#       title: returnedBooksRequest
+#       required:
+#       - r_id
+#       - returned_to_staff
+#       type: object
+#       properties:
+#         r_id:
+#           type: integer
+#           format: int32
+#         returned_to_staff:
+#           type: integer
+#           format: int32
+#       example:
+#         r_id: 1
+#         returned_to_staff: 1
+#     staffDetailsRequest:
+#       title: staffDetailsRequest
+#       required:
+#       - staff_id
+#       - name
+#       - assigned_student_id
+#       - mobile_number
+#       type: object
+#       properties:
+#         staff_id:
+#           type: integer
+#           format: int32
+#         name:
+#           type: string
+#         assigned_student_id:
+#           type: integer
+#           format: int32
+#         mobile_number:
+#           type: integer
+#           format: int32
+#       example:
+#         staff_id: 2
+#         name: Vijay
+#         assigned_student_id: 2
+#         mobile_number: 8008
+#     staffDetailsRequest1:
+#       title: staffDetailsRequest1
+#       required:
+#       - name
+#       type: object
+#       properties:
+#         name:
+#           type: string
+#       example:
+#         name: Senthil
+#     publisherDetailsRequest:
+#       title: publisherDetailsRequest
+#       required:
+#       - publisher_id
+#       - publisher_name
+#       - year_of_publication
+#       type: object
+#       properties:
+#         publisher_id:
+#           type: integer
+#           format: int32
+#         publisher_name:
+#           type: string
+#         year_of_publication:
+#           type: string
+#       example:
+#         publisher_id: 108
+#         publisher_name: Buks India
+#         year_of_publication: 2001-06-08
+#     publisherDetailsRequest1:
+#       title: publisherDetailsRequest1
+#       required:
+#       - publisher_name
+#       type: object
+#       properties:
+#         publisher_name:
+#           type: string
+#       example:
+#         publisher_name: Books India
+#     readerrequest:
+#       title: readerrequest
+#       required:
+#       - r_id
+#       - mail_id
+#       - first_name
+#       - last_name
+#       - mobile_num
+#       - address
+#       type: object
+#       properties:
+#         r_id:
+#           type: integer
+#           format: int32
+#         mail_id:
+#           type: string
+#         first_name:
+#           type: string
+#         last_name:
+#           type: string
+#         mobile_num:
+#           type: integer
+#           format: int32
+#         address:
+#           type: string
+#       example:
+#         r_id: 4
+#         mail_id: kathi@rgukt.in
+#         first_name: Yaswanth
+#         last_name: Kathi
+#         mobile_num: 258
+#         address: Gudur
+#     libAuthRequest:
+#       title: libAuthRequest
+#       required:
+#       - mobile_number
+#       - email
+#       - password
+#       type: object
+#       properties:
+#         mobile_number:
+#           type: integer
+#           format: int32
+#         email:
+#           type: string
+#         password:
+#           type: string
+#       example:
+#         mobile_number: 1204
+#         email: chillbro@gmail.com
+#         password: chill@123
+#   securitySchemes:
+#     bearer:
+#       type: http
+#       scheme: bearer
+# security: []
+tags:
+- name: Misc
+  description: ''
