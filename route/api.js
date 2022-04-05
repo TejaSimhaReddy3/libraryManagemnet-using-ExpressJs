@@ -6,7 +6,7 @@ const staffDetailsRoute = require('./staffDetailsRoute');
 const publisherDetailsRoute = require('./publisherDetailsRoute');
 const readerDetailsRoute = require('./readerDetailsRoute');
 const libAuthRoute = require('./libAuthRoute')
-const libAuthMiddleware = require('../middlwewares/authenticate')
+const libAuthMiddleware = require('../middlewares/authenticate')
 
 const router = express.Router();
 
